@@ -1,28 +1,21 @@
 pipeline {
-    agent none
+    agent any
+    parameters { booleanParam(name: 'DEBUG_BUILD', defaultValue: true, description: '')
+    choice(name: 'CHOICES', choices: ['one', 'two', 'three'], description: '')}
 
     stages{
         stage ('STAGE_1') {
 
-            agent { label 'slave1'}
-
             steps {
                 sh '''
-                   ls -lrt
-                   pwd
-                   env
-                   sleep 10
+                   ls
                 '''   
             }
         }
         stage ('STAGE_2') {
 
-            agent { label 'slave2'}
-
             steps {
-                sh '''
-                   sleep 3
-                '''   
+                echo "STAGE 2"  
             }
         }
     }
