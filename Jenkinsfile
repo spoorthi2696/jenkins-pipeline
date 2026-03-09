@@ -8,7 +8,7 @@ pipeline {
                    ls -lrt
                    pwd
                    env
-                   sleep 2
+                   sleep 5
                 '''   
             }
         }
