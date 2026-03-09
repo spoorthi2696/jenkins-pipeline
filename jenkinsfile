@@ -5,7 +5,7 @@ pipeline {
         stage ('STAGE_1') {
             steps {
                 sh '''
-                   ls-lrt
+                   ls -lrt
                    pwd
                    env
                    sleep 2
