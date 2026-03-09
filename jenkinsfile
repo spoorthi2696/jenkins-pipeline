@@ -1,11 +1,24 @@
 pipeline {
     agent any
 
-    stages {
-        stage('Hello') {
+    stages{
+        stage ('STAGE_1') {
             steps {
-                echo 'Hello World'
+                sh '''
+                   ls-lrt
+                   pwd
+                   env
+                   sleep 2
+                '''   
             }
+        }
+        stage ('STAGE_2') {
+            steps {
+                sh '''
+                   sleep 5
+                '''   
+            }
+
         }
     }
 }
