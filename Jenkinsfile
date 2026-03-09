@@ -1,5 +1,5 @@
 pipeline {
-    agent { label 'slave1'}
+    agent { label 'slave2'}
 
     stages{
         stage ('STAGE_1') {
@@ -13,6 +13,7 @@ pipeline {
             }
         }
         stage ('STAGE_2') {
+            agent any
             steps {
                 sh '''
                    sleep 3
