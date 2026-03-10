@@ -1,22 +1,23 @@
 pipeline {
     agent any
-    parameters { booleanParam(name: 'DEBUG_BUILD', defaultValue: true, description: '')
-    choice(name: 'CHOICES', choices: ['one', 'two', 'three'], description: '')}
 
-    stages{
-        stage ('STAGE_1') {
-
-            steps {
-                sh '''
-                   ls
-                '''   
-            }
+    stages {
+        stage('Checkout'){
+          steps{
+            git branch: 'main', credentialsId: 'spoorthi2696', url: 'https://github.com/spoorthi2696/Test1.git'
+          }
         }
-        stage ('STAGE_2') {
 
-            steps {
-                echo "STAGE 2"  
+        stage('Build'){
+            steps{
+                sh '''
+                   pwd
+                   ls -lrt
+
+                '''
             }
+
         }
     }
 }
+    
