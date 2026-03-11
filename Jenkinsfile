@@ -13,12 +13,10 @@ pipeline{
        stage ('Checkout'){
         steps{
         git url: "${env.GIT_URL}",
-            branch: "${env.BRANCH}",
+            branch: "${env.CHECKOUT_BRANCH}",
             credentialsID: "${env.GIT_CREDS}"
        }
        }
-
-       } 
       stage ('shell syntax'){
       steps{
 
@@ -30,3 +28,4 @@ pipeline{
       }
     }
    }
+}  
