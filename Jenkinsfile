@@ -14,7 +14,7 @@ pipeline{
         steps{
         git url: "${env.GIT_URL}",
             branch: "${env.CHECKOUT_BRANCH}",
-            credentialsID: "${env.GIT_CREDS}"
+            credentialsId: "${env.GIT_CREDS}"
        }
        }
       stage ('shell syntax'){
