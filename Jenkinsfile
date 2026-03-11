@@ -19,8 +19,6 @@ pipeline{
        }
 
        } 
-     
-   stages{
       stage ('shell syntax'){
       steps{
 
@@ -32,4 +30,3 @@ pipeline{
       }
     }
    }
-}
