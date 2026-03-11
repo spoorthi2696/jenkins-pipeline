@@ -19,7 +19,7 @@ pipeline {
                 }
 
               }
-             stage('Build')
+             stage('Build'){
              steps{
               sh '''
                 pwd
@@ -29,7 +29,8 @@ pipeline {
             }
          }
       }
-    }}
+    }
+} }
     
 
 
