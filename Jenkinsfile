@@ -1,38 +1,33 @@
-pipeline {
-    agent any
+pipeline{
+   agent any
 
-    stages {
-        stage('Checkout'){
-          steps{
-            git branch: 'main', credentialsId: 'spoorthi2696', url: 'https://github.com/spoorthi2696/Test1.git'
-          }
-        }
-        stage('parallel stages'){
-             parallel{
-             stage('Check code quality repo1'){
-             steps{
-                sh '''
-                   pwd
-                   ls -lrt
-                   sleep 10
-                '''
-                }
+   environment {
+    APP_NAME = 'frontend'
+    TARGET_ENV = 'prod'
+    URL = 'https://github.com/spoorthi2696/jenkins-pipeline.git'
+    GIT_CREDS = 'spoorthi2696'
+    CHECKOUT_BRANCH = 'main'
+   }
 
-              }
-             stage('Build'){
-             steps{
-              sh '''
-                pwd
-                ls -lrt
-                sleep 10
-              '''  
-            }
-         }
+     stages{
+       stage ('Checkout'){
+        git url: "${env.URL}",
+            branch: "${env.BRANCH}",
+            credentialsID: "${env.GIT_CREDS}"
+       }
+
+       } 
+     
+   stages{
+      stage('shell syntax'){
+      step{
+
+        // Shell synatx
+        sh '''
+           echo $APP_NAME
+           echo $TARGET_ENV
+        '''
       }
     }
-} }
-    
-
-
-
-    
+   }
+}
