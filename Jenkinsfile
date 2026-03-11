@@ -2,11 +2,11 @@ pipeline{
    agent any
 
    environment {
-    APP_NAME = "frontend"
-    TARGET_ENV = "prod"
-    GIT_URL = "https://github.com/spoorthi2696/jenkins-pipeline.git"
-    GIT_CREDS = "spoorthi2696"
-    CHECKOUT_BRANCH = "main"
+    APP_NAME = 'frontend'
+    TARGET_ENV = 'prod'
+    GIT_URL = 'https://github.com/spoorthi2696/jenkins-pipeline.git'
+    GIT_CREDS = 'spoorthi2696'
+    CHECKOUT_BRANCH = 'main'
    }
 
      stages{
@@ -21,7 +21,7 @@ pipeline{
        } 
      
    stages{
-      stage('shell syntax'){
+      stage ('shell syntax'){
       steps{
 
         // Shell synatx
