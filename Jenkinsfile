@@ -1,17 +1,15 @@
 pipeline {
     agent any
     
-    options {
-        disableConcurrentBuilds()
-        timestamps()
+    parameters{
+         choice choices: ['https://github.com/spoorthi2696/Test1.git', 
+         'https://github.com/spoorthi2696/DevSecOps-Microdegree.git'], 
+         name: 'GIT_URL'
     }
 
     environment {
-        APP_NAME = 'frontend'
-        TARGET_ENV = 'prod'
-        GIT_URL = 'https://github.com/spoorthi2696/jenkins-pipeline.git'
-        GIT_CREDS = 'spoorthi2696'
         CHECKOUT_BRANCH = 'main'
+        GIT_CREDS = 'spoorthi2696'
     }
 
     stages {
