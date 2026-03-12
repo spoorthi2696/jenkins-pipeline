@@ -1,38 +1,25 @@
 pipeline {
     agent any
-    
-    parameters {
-        choice(name: 'GIT_URL', choices: [
-        'https://github.com/spoorthi2696/Test1.git',
-        'https://github.com/spoorthi2696/DevSecOps-Microdegree.git'
-        ])
-        
-        choice(name: 'SERVER', choices: ['test','staging','PROD']) 
-    }
 
-    environment {
-        CHECKOUT_BRANCH = 'main'
-        GIT_CREDS = 'spoorthi2696'
-    }
-
-    stages {
-
-        stage('Checkout') {
+    stages{
+        stage('A') {
             steps {
-                git url: "${params.GIT_URL}",
-                    branch: "${env.CHECKOUT_BRANCH}",
-                    credentialsId: "${env.GIT_CREDS}"
+                echo "This is a Stage"
             }
         }
 
-        stage('Shell Syntax') {
+        stage('B') {
             steps {
-                sh '''
-                   echo $CHECKOUT_BRANCH
-                   echo $SERVER
-                '''
+                catchError(stageResult: 'SUCCESS', buildResult: 'SUCCESS'){
+                    Sh 'exit 1'
+                }
             }
         }
 
+        stage('C') {
+            steps{
+                echo "Continue to the next stages"
+            }
+        }
     }
 }
