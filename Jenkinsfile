@@ -2,9 +2,9 @@ pipeline {
     agent any
     
     parameters{
-         choice choices: ['https://github.com/spoorthi2696/Test1.git', 
-         'https://github.com/spoorthi2696/DevSecOps-Microdegree.git'], 
-         name: 'GIT_URL'
+         choice(name: 'GIT_URL', choices: ['https://github.com/spoorthi2696/Test1.git','https://github.com/spoorthi2696/DevSecOps-Microdegree.git']), 
+        choice(name: 'SERVER', choices: ['test','staging','PROD']) 
+        name: 'GIT_URL'
     }
 
     environment {
