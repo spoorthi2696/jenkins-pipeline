@@ -20,7 +20,7 @@ pipeline {
                     }catch(e) {
                         echo "caught the error: ${e}"
                     }finally {
-                        echo "Disconnect it"
+                        echo "Disconnect it from the stage"
                     }
                 }
                 
