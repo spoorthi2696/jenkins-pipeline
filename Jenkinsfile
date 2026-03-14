@@ -12,7 +12,7 @@ pipeline {
             steps {
                 script {
                     try{
-                        sh echo 'hi'
+                        sh 'exit 1'
                     }catch(e) {
                         echo "caught the error: ${e}"
                     }finally {
