@@ -3,12 +3,19 @@ pipeline {
 
     triggers {
         pollSCM('H/2 * * * *')
+        cron('H/15 * * * 1-5')
+        githubPush()
     }
 
     stages{
-        stage('A') {
+        stage('Checkout') {
             steps {
-                echo "This is a Stage to test poll SCM"
+                //Expicitly poll will be executed in the below repo
+                
+                git url: 'https://github.com/spoorthi2696/jenkins-pipeline.git',
+                branch: 'main',
+                credentialsId: 'spoorthi2696'
+
             }
         }
 
