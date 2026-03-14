@@ -10,9 +10,16 @@ pipeline {
 
         stage('B') {
             steps {
-                catchError(stageResult: 'SUCCESS', buildResult: 'SUCCESS'){
-                    sh 'exit 1'
+                script {
+                    try{
+                        sh echo 'hi'
+                    }catch(e) {
+                        echo "caught the error: ${e}"
+                    }finally {
+                        echo "Disconnect"
+                    }
                 }
+                
             }
         }
 
